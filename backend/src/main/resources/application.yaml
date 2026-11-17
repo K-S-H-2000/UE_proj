@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ue
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ue
+    username: ue_admin
+    password: devpassword
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    open-in-view: false
+    show-sql: true
+
+jwt:
+  secret: c2VjcmV0LWtleS1mb3ItdWUtdW5pdmVyc2l0eS1lY29zeXN0ZW0tcGxhdGZvcm0tMjAyNi1qd3Qtc3ByaW5nLWJvb3Q=
+  access-token-expiration: 3600000        # 1시간
+  refresh-token-expiration: 1209600000    # 14일
+  signup-token-expiration: 1800000        # 30분
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+
+server:
+  port: 8080

@@ -186,6 +186,7 @@ CREATE TABLE transactions (
     cancelled_at       TIMESTAMPTZ,
     cancelled_by       BIGINT      REFERENCES users(user_id),
     cancel_reason      VARCHAR(200),
+    agreed_price       INTEGER,
     completed_at       TIMESTAMPTZ,
     buyer_confirmed_at TIMESTAMPTZ,          -- TRST-04: 이 값이 있어야 완료 횟수 반영
     CONSTRAINT ck_trx_not_self CHECK (seller_id <> buyer_id)
